@@ -135,8 +135,8 @@ class my_controller extends Controller
         foreach ($data as $item) {
             $chardata .= "['$item->typename',$item->total_asset],";
         }
-        $chardata = rtrim($chardata, ',');
-        return view('pages.piechart', ['chardata' => $chardata]);
+        $chardatapie = rtrim($chardata, ',');
+        return view('pages.piechart', ['chardatapie' => $chardatapie]);
     }
 
     public function bar_chart()
@@ -146,8 +146,8 @@ class my_controller extends Controller
     
         $inactive=(($data[0]->active));
         $active=($data[1]->active);
-        return response([$inactive]);
-        // return view('pages.barchart', ['active' => $active ,'inactive'=>$inactive]);
+        
+        return view('pages.barchart', ['active' => $active ,'inactive'=>$inactive]);
     }
 
     public function exportCsv(Request $request)
@@ -238,7 +238,7 @@ class my_controller extends Controller
             // $addassetmodel->asset_image=$;
             $addassetmodel->status = $status;
             if ($addassetmodel->save()) {
-                return back()->with('success', 'Asset updated successfully');
+                return redirect('/showassets')->with('success','updated successfully');
             } else {
                 return back()->with('error', 'Asset not updated');
             }
@@ -266,7 +266,7 @@ class my_controller extends Controller
             $typemodel->assettype = $type;
             $typemodel->description = $description;
             if ($typemodel->save()) {
-                return back()->with('success', 'Asset type updated successfully');
+                return redirect('/showtypes')->with('success','updated successfully');
             } else {
                 return back()->with('error', 'Asset type not updated ');
             }

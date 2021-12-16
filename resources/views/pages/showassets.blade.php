@@ -3,7 +3,11 @@
 <div class="container text-center">
     <h1>Assets</h1>
     <hr>
-
+    @if(Session::has('success'))
+        <div class="alert alert-success">
+        {{Session::get('success')}}
+        </div>
+    @endif
      <!-- for downloading csv file. -->
     <span data-href="/tasks" id="export" class="btn btn-success btn-sm" onclick="exportTasks(event.target);">Download All assets</span>
     <script>

@@ -11,7 +11,7 @@
 
         var data = google.visualization.arrayToDataTable([
           ['Asset type', 'Total asset'],
-          <?php echo $chardata?>
+          <?php echo $chardatapie?>
         ]);
 
         var options = {

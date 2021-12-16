@@ -3,6 +3,11 @@
 <div class="container text-center">
     <h1>Asset Types</h1>
     <hr>
+    @if(Session::has('success'))
+        <div class="alert alert-success">
+        {{Session::get('success')}}
+        </div>
+        @endif
     <br>
     <table class="table">
       <thead>
