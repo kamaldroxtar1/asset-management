@@ -13,7 +13,7 @@
         {{Session::get('error')}}
         </div>
         @endif
-        <form class="container bg-light col-md-6" method="post" action="/addasset_insert" enctype="multipart/form-data">
+        <form class="container bg-light col-md-6" method="post" action="/addasset_insert" >
             @csrf
              <div class="form-group ">
                 <label>Asset Name</label>
@@ -41,9 +41,10 @@
                     {{$message}}
                 </span>
                 @enderror
-                <select class="form-control " name="assettypes" placeholder="Asset Type" >
-                @foreach($assettype as $asset)
-                    <option value="{{$asset->id}}">{{$asset->assettype}}</option>
+                <select class="form-control " name="assettype" placeholder="Asset Type" >
+                    <option >Select Asset Type</option>
+                @foreach($AssetType as $asset)
+                    <option  value="{{$asset->id}}">{{$asset->assettype}}</option>
                     
                  @endforeach
                 </select>

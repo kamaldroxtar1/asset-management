@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\AssetController;
+use App\Http\Controllers\AssetTypeController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Controllers\my_controller;
+use App\Http\Controllers\ChartController;
 
 
 /*
@@ -24,19 +26,25 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/addtypes',[my_controller::class,'show']);
-Route::get('/showtypes',[my_controller::class,'show_types']);
-Route::get('/addassets',[my_controller::class,'show2']);
-Route::get('/showassets',[my_controller::class,'show_assets'])->name('showassets');
-Route::post('/addtypes_insert',[my_controller::class,'insert_type']);
-Route::post('/addasset_insert',[my_controller::class,'insert_asset']);
-Route::get('/delete/{id}',[my_controller::class,'delete_asset']);
-Route::get('/deletetype/{id}',[my_controller::class,'delete_type']);
-Route::get('/pie',[my_controller::class,'pie_chart']);
-Route::get('/bar',[my_controller::class,'bar_chart']);
-Route::get('/tasks', [my_controller::class,'exportCsv']);
-Route::get('/edit/{id}', [my_controller::class,'edit']);
-Route::get('/edittype/{id}', [my_controller::class,'edittype']);
-Route::post('/update/{id}', [my_controller::class,'update_asset']);
-Route::post('/updatetype/{id}', [my_controller::class,'update_type']);
+Route::get('addTypes',[AssetTypeController::class,'AddAssetTypeForm'])->name('addTypes');
+Route::get('showTypes',[AssetTypeController::class,'ShowAsssetsType'])->name('showTypes');
+Route::post('/addtypes_insert',[AssetTypeController::class,'InsertAssetType']);
+Route::get('/deletetype/{id}',[AssetTypeController::class,'DeleteAssetType']);
+Route::get('/edittype/{id}', [AssetTypeController::class,'EditAssetType']);
+Route::post('/updatetype/{id}', [AssetTypeController::class,'UpdateAssetType']);
+
+Route::get('addAssets',[AssetController::class,'AddAssetForm'])->name('addAssets');
+Route::get('showAssets',[AssetController::class,'ShowAssets'])->name('showAssets');
+Route::post('/addasset_insert',[AssetController::class,'InsertAsset']);
+Route::get('/delete/{id}',[AssetController::class,'DeleteAsset']);
+Route::get('/edit/{id}', [AssetController::class,'EditAsset']);
+Route::post('/update/{id}', [AssetController::class,'UpdateAsset']);
+
+Route::get('pie',[ChartController::class,'PieChart'])->name('pie');
+Route::get('bar',[ChartController::class,'BarChart'])->name('bar');
+Route::get('download', [ChartController::class,'DownloadAssets'])->name('download');
+
+
+
+
 

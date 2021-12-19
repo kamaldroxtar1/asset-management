@@ -41,10 +41,18 @@
                     {{$message}}
                 </span>
                 @enderror
-                <select class="form-control " name="assettypes"  >
+                <select class="form-control " name="assettype"  >
+                <?php
+                $type=$dataasset->typename;
+                ?>
                 @foreach($dataname1 as $asset)
-                    <option value="{{$asset->id}}">{{$asset->assettype}}</option>
-                    
+                @if($asset->assettype==$type){
+                    <option selected value="{{$asset->id}}">{{$asset->assettype}}</option>
+                }
+                @else{
+                    <option  value="{{$asset->id}}">{{$asset->assettype}}</option>
+                }
+                @endif
                  @endforeach
                 </select>
              </div>

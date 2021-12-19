@@ -14,7 +14,7 @@
         {{Session::get('error')}}
         </div>
         @endif
-        <form class="container bg-light col-md-6" method="post" action="/updatetype/{{$dataasset->id}}">
+        <form class="container bg-light col-md-6" method="post" action="/updatetype/{{$AssetTypeData->id}}">
             @csrf
              <div class="form-group ">
                 <label>Type Name</label>
@@ -23,7 +23,7 @@
                     {{$message}}
                 </span>
                 @enderror
-                <input type="text" class="form-control " name="type" value="{{$dataasset->assettype}}" >
+                <input type="text" class="form-control " name="type" value="{{$AssetTypeData->assettype}}" >
              </div>
              <div class="form-group">
                 <label>Description</label>
@@ -32,7 +32,7 @@
                     {{$message}}
                 </span>
                 @enderror
-                <textarea type="text" class="form-control" name="description" value="{{$dataasset->description}}" ></textarea>
+                <textarea type="text" class="form-control" name="description" >{{$AssetTypeData->description}}</textarea>
                 <small>Maximum 200 words allowed.</small>
              </div>
              <input type="submit" value="submit" class="btn btn-success">

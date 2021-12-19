@@ -9,7 +9,7 @@
         </div>
     @endif
      <!-- for downloading csv file. -->
-    <span data-href="/tasks" id="export" class="btn btn-success btn-sm" onclick="exportTasks(event.target);">Download All assets</span>
+    <span data-href="{{ route('download') }}" id="export" class="btn btn-success btn-sm" onclick="exportTasks(event.target);">Download All assets</span>
     <script>
       function exportTasks(_this) {
           let _url = $(_this).data('href');
@@ -34,7 +34,7 @@
         @foreach($data as $asset)
         <tr>
           <td>{{$asset->assetname}}</td>
-          <td>{{$asset->typename}}</td>
+          <td>{{$asset->getTypeName->assettype}}</td>
           <td>{{$asset->uuid}}</td>
           <td>{{$asset->asset_image}}</td>
           <?php

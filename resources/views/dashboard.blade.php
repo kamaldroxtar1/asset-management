@@ -50,7 +50,7 @@
           <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-          <a href="home" class="nav-link">Home</a>
+          <a href="{{ route('home') }}" class="nav-link">Home</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
           <a href="#" class="nav-link">Contact</a>
@@ -128,7 +128,7 @@
                with font-awesome or any other icon font library -->
             <li class="nav-header">Asset Types</li>
             <li class="nav-item">
-              <a href="/addtypes" class="nav-link">
+              <a href="{{ route('addTypes') }}" class="nav-link">
                 <i class="nav-icon fa fa-plus-square"></i>
                 <p>
                   Add 
@@ -137,7 +137,7 @@
             </li>
 
             <li class="nav-item">
-              <a href="showtypes" class="nav-link">
+              <a href="{{ route('showTypes') }}" class="nav-link">
                 <i class="nav-icon fas fa-eye"></i>
                 <p>
                   Show 
@@ -150,7 +150,7 @@
 
             <li class="nav-header">Assets</li>
             <li class="nav-item">
-              <a href="addassets" class="nav-link">
+              <a href="{{ route('addAssets') }}" class="nav-link">
                 <i class="nav-icon fa fa-plus-square"></i>
                 <p>
                   Add 
@@ -159,7 +159,7 @@
             </li>
 
             <li class="nav-item">
-              <a href="{{route('showassets')}}" class="nav-link">
+              <a href="{{route('showAssets')}}" class="nav-link">
                 <i class="nav-icon fas fa-eye"></i>
                 <p>
                   Show 
@@ -170,7 +170,7 @@
             
             <li class="nav-header">Charts</li>
             <li class="nav-item">
-              <a href="/pie" class="nav-link">
+              <a href="{{ route('pie') }}" class="nav-link">
                 <i class="nav-icon fas fa-eye"></i>
                 <p>
                   Pie Chart
@@ -179,7 +179,7 @@
             </li>
 
             <li class="nav-item">
-              <a href="/bar" class="nav-link">
+              <a href="{{ route('bar') }}" class="nav-link">
                 <i class="nav-icon fas fa-eye"></i>
                 <p>
                   Bar chart
@@ -206,7 +206,7 @@
             </div><!-- /.col -->
             <div class="col-sm-6">
               <ol class="breadcrumb float-sm-right">
-                <li class="breadcrumb-item"><a href="home">Home</a></li>
+                <li class="breadcrumb-item"><a href="{{ route('home') }}">Home</a></li>
                 <li class="breadcrumb-item active">Dashboard v1</li>
               </ol>
             </div><!-- /.col -->

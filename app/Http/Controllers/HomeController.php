@@ -26,19 +26,21 @@ class HomeController extends Controller
 
         $data = DB::select(DB::raw('select count(*) as total_asset, typename from assets group by typename'));
         $chardata = "";
+        if(count($data)>0){
         foreach ($data as $item) {
             $chardata .= "['$item->typename',$item->total_asset],";
+                }
+            $chardatapie = rtrim($chardata, ',');
         }
-        $chardatapie = rtrim($chardata, ',');
-        // return view('pages.piechart', ['chardatapie' => $chardatapie]);
+        else{
+            $chardatapie="";
+        }
 
-        $data = DB::select(DB::raw('select count(*) as active, count(*) as inactive from assets group by status'));
-        
-    
-        $inactive=(($data[0]->active));
-        $active=($data[1]->active);
-        
-        // return view('pages.barchart', ['active' => $active ,'inactive'=>$inactive]);
-        return view('newdashboard',['chardatapie' => $chardatapie,'active' => $active ,'inactive'=>$inactive]);
+
+        $active = DB::select(DB::raw('SELECT count(*) as active FROM `assets` WHERE status=1'));
+        $inactive = DB::select(DB::raw('SELECT count(*) as inactive FROM `assets` WHERE status=0'));
+
+
+        return view('newdashboard',['chardatapie' => $chardatapie,'active' => $active[0]->active ,'inactive'=>$inactive[0]->inactive]);
     }
 }

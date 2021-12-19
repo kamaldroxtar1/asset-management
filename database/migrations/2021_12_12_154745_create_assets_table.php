@@ -16,7 +16,8 @@ class CreateAssetsTable extends Migration
         Schema::create('assets', function (Blueprint $table) {
             $table->id();
             $table->string('assetname');
-            $table->integer('typeid');
+            $table->unsignedBigInteger('typeid');
+            $table->foreign('typeid')->references('id')->on('assettypes');
             $table->string('typename');
             $table->bigInteger('uuid');
             $table->string('asset_image')->nullable();

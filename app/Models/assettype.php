@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class assettype extends Model
 {
     use HasFactory;
+    
 }

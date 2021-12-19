@@ -18,7 +18,7 @@
         </tr>
       </thead>
       <tbody>
-        @foreach($assettypes as $types)
+        @foreach($AssetTypes as $types)
         <tr>
           <td >{{$types->assettype}}</td>
           <td >{{$types->description}}</td>
